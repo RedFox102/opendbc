@@ -125,11 +125,11 @@ BO_ 541 SCBS_LIDAR: 8 XXX
  SG_ Obj_Reletive_Speed_Left : 50|5@1+ (1,0) [0|31] "" XXX
  SG_ Obj_Reletive_Speed_Right : 56|5@1+ (1,0) [0|31] "" XXX
 
-BO_ 605 CAM_PEDESTRIAN: 8 XXX
+BO_ 605 SCBS_BRAKE: 8 XXX
  SG_ CTR : 17|4@0+ (1,0) [0|255] "" XXX
  SG_ AEB_NOT_ENGAGED : 13|1@0+ (1,0) [0|1] "" XXX
- SG_ PED_WARNING : 9|1@0+ (1,0) [0|255] "" XXX
- SG_ PED_BRAKE : 3|3@0+ (1,0) [0|7] "" XXX
+ SG_ BRAKE_WARNING : 9|1@0+ (1,0) [0|255] "" XXX
+ SG_ BRAKE : 3|3@0+ (1,0) [0|7] "" XXX
  SG_ RST_CTR : 23|6@0+ (1,0) [0|63] "" XXX
  SG_ S1 : 29|4@0+ (1,0) [0|31] "" XXX
  SG_ BRAKE_WARNING : 25|1@0+ (1,0) [0|1] "" XXX
