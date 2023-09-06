@@ -132,7 +132,7 @@ BO_ 605 SCBS_BRAKE: 8 XXX
  SG_ BRAKE : 3|3@0+ (1,0) [0|7] "" XXX
  SG_ RST_CTR : 23|6@0+ (1,0) [0|63] "" XXX
  SG_ S1 : 29|4@0+ (1,0) [0|31] "" XXX
- SG_ BRAKE_WARNING : 25|1@0+ (1,0) [0|1] "" XXX
+ SG_ BRAKE_WARNING2 : 25|1@0+ (1,0) [0|1] "" XXX
 
 BO_ 578 CAM_LANETRACK: 8 XXX
  SG_ CHKSUM : 63|8@0+ (1,0) [0|255] "" XXX
