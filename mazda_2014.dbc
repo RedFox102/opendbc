@@ -216,28 +216,28 @@ BO_ 539 CRZ_INFO: 8 XXX
  SG_ CHKSUM : 63|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 540 CRZ_CTRL: 8 XXX
- SG_ LDW_Status_IND : 0|2@1+ (1,0) [0|7] "" XXX
+ SG_ LANE_LINE_VISIBLE : 0|2@1+ (1,0) [0|7] "" XXX
  SG_ NEW_SIGNAL_2 : 2|1@0+ (1,0) [0|1] "" XXX
- SG_ CRZ_ACTIVE : 3|3@1+ (1,0) [0|7] "" XXX
+ SG_ CRZ_ACTIVE : 3|1@1+ (1,0) [0|1] "" XXX
  SG_ ERROR_STATUS : 6|2@1+ (1,0) [0|3] "" XXX
- SG_ LANE_LINES_HUD : 8|3@1+ (1,0) [0|7] "" XXX
- SG_ Warn_FLASH_IND : 11|1@1+ (1,0) [0|1] "" XXX
- SG_ Warn_DisplayColor : 12|1@1+ (1,0) [0|1] "" XXX
- SG_ Status : 13|3@1+ (1,0) [0|7] "" XXX
- SG_ Warn_DRSS_Distance : 16|2@1+ (1,0) [0|3] "" XXX
- SG_ Warn_Distance_SW_Status : 18|3@1+ (1,0) [0|7] "" XXX
- SG_ Warn_PopUp_Display_Request : 22|1@1+ (1,0) [0|1] "" XXX
+ SG_ LANE_LINE_TYPE : 8|3@1+ (1,0) [0|7] "" XXX
+ SG_ WARN_FLASH_IND : 11|1@1+ (1,0) [0|1] "" XXX
+ SG_ WARN_HUD_COLOR : 12|1@1+ (1,0) [0|1] "" XXX
+ SG_ STATUS : 13|3@1+ (1,0) [0|7] "" XXX
+ SG_ WARN_DRSS_DISTANCE : 16|2@1+ (1,0) [0|3] "" XXX
+ SG_ WARN_DISTANCE_SW_STATUS : 18|3@1+ (1,0) [0|7] "" XXX
+ SG_ WARN_POPUP_DISPLAY_REQUEST : 22|1@1+ (1,0) [0|1] "" XXX
  SG_ ACC_HAS_LEAD : 23|1@1+ (1,0) [0|1] "" XXX
  SG_ DRSS_DISTANCE : 29|3@1+ (1,0) [0|7] "" XXX
- SG_ Warn_PCS_Failed : 32|1@1+ (1,0) [0|1] "" XXX
- SG_ Warn_CCM_Deactivated : 33|1@1+ (1,0) [0|1] "" XXX
- SG_ Warn_ACC_Failed : 34|2@1+ (1,0) [0|3] "" XXX
- SG_ Warn_FSC_Status : 40|3@1+ (1,0) [0|7] "" XXX
+ SG_ WARN_PCS_FAILED : 32|1@1+ (1,0) [0|1] "" XXX
+ SG_ WARN_ACC_DEACTIVATED : 33|1@1+ (1,0) [0|1] "" XXX
+ SG_ WARN_ACC_FAILED : 34|2@1+ (1,0) [0|3] "" XXX
+ SG_ WARN_FSC_STATUS : 40|3@1+ (1,0) [0|7] "" XXX
  SG_ a_3 : 43|4@1+ (1,0) [0|15] "" XXX
- SG_ Warn_DRSS_Failed : 47|1@1+ (1,0) [0|1] "" XXX
- SG_ Brake_WARN : 48|4@1+ (1,0) [0|15] "" XXX
- SG_ a_4 : 52|1@1+ (1,0) [0|1] "" XXX
- SG_ Warn_Radar_Blocked : 53|3@1+ (1,0) [0|7] "" XXX
+ SG_ WARN_DRSS_FAILED : 47|1@1+ (1,0) [0|1] "" XXX
+ SG_ BRAKE_WARN : 48|4@1+ (1,0) [0|15] "" XXX
+ SG_ CRZ_ACTIVE_2 : 52|1@1+ (1,0) [0|1] "" XXX
+ SG_ WARN_RADAR_BLOCKED : 53|3@1+ (1,0) [0|7] "" XXX
  SG_ NEW_SIGNAL_1 : 63|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 541 SCBS_LIDAR: 8 XXX
@@ -552,6 +552,7 @@ BO_ 1243 2017_3: 8 XXX
 
 BO_ 1244 iEloop_STATUS: 8 XXX
  SG_ NEW_SIGNAL_1 : 17|10@0+ (1,0) [0|1023] "" XXX
+ SG_ NEW_SIGNAL_2 : 56|8@1+ (1,0) [0|255] "" XXX
 
 BO_ 1266 MSG_09: 8 XXX
  SG_ NEW_SIGNAL_2 : 19|4@0+ (1,0) [0|1] "" XXX
@@ -589,6 +590,9 @@ CM_ SG_ 120 VEHICLE_ACC_X "Vehicle acceleration of X-axis wrt. NED frame.";
 CM_ SG_ 120 VEHICLE_ACC_Y "Vehicle acceleration of Y-axis wrt. NED frame.";
 CM_ SG_ 157 CAN_OFF "Disengage Cruise if enabled, if already disabled  TURN it OFF";
 CM_ SG_ 357 GEAR "13P, 26R, 13N, 24D";
+CM_ SG_ 540 LANE_LINE_VISIBLE "Inverse value of CAM_LKAS signal "Line Not Visible.";
+CM_ SG_ 540 LANE_LINE_TYPE "Matches CRZ_CTRL signal "Lane Lines"";
+CM_ SG_ 540 WARN_POPUP_DISPLAY_REQUEST "This signal seems to be triggered before non-critical alerts are displayed, but not for all alerts. For example, brake warning does not seem to need this.";
 CM_ SG_ 552 GEAR "0 Shifting, 1 P, 2 R, 3 N, 4 D";
 CM_ SG_ 552 GEAR_BOX "0 P, 14 R, 1 though 6 D for speeds, 15 Shift";
 CM_ SG_ 579 STEERING_ANGLE "steering angle aligns with 0.022 factor and -45.06 offset";
@@ -602,5 +606,8 @@ CM_ SG_ 1157 LKAS_ASSIT_TIMING "1 at, 0 before";
 CM_ SG_ 1157 LANEE_DEPARTURE_ALERT "1 off, 2 on";
 CM_ SG_ 1157 SBS_WARNING_DISTANCE "1 far, 2 mid, 3 near";
 CM_ SG_ 1157 SBS_SCBC "1 off, 2 on";
+VAL_ 540 LANE_LINE_VISIBLE 1 "Line Visible" 0 "Line Not Visible";
+VAL_ 540 LANE_LINE_TYPE 0 "Main Cruise Disabled" 2 "Left/Right Lines Detected" 1 "Line Not Visible";
+VAL_ 540 WARN_POPUP_DISPLAY_REQUEST 1 "Warn PopUp Request";
 VAL_ 540 DRSS_DISTANCE 0 "No lead" 1 "Very far" 2 "Far" 3 "Mid" 4 "Close";
 VAL_ 552 GEAR 1 "P" 2 "R" 3 "N" 4 "D";
