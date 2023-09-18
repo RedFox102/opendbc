@@ -22,19 +22,9 @@ BO_ 120 BRAKE: 8 XXX
  SG_ BRAKE_PRESSURE : 39|8@0+ (1,0) [0|255] "" XXX
  SG_ CTR : 55|8@0+ (1,0) [0|255] "" XXX
 
-BO_ 121 EPB: 8 XXX
- SG_ NEW_SIGNAL_2 : 0|1@0+ (1,0) [0|1] "" XXX
- SG_ NEW_SIGNAL_1 : 4|4@0+ (1,0) [0|255] "" XXX
- SG_ NEW_SIGNAL_3 : 15|8@0+ (1,0) [0|255] "" XXX
- SG_ NEW_SIGNAL_4 : 25|2@0+ (1,0) [0|255] "" XXX
- SG_ EPB_ACTIVE : 29|1@0+ (1,0) [0|15] "" XXX
- SG_ NEW_SIGNAL_6 : 39|8@0+ (1,0) [0|255] "" XXX
- SG_ NEW_SIGNAL_8 : 41|2@0+ (1,0) [0|255] "" XXX
- SG_ NEW_SIGNAL_11 : 45|1@0+ (1,0) [0|1] "" XXX
- SG_ NEW_SIGNAL_10 : 46|1@0+ (1,0) [0|1] "" XXX
- SG_ NEW_SIGNAL_9 : 47|1@0+ (1,0) [0|63] "" XXX
- SG_ CTR : 55|8@0+ (1,0) [0|255] "" XXX
- SG_ NEW_SIGNAL_7 : 63|8@0+ (1,0) [0|255] "" XXX
+BO_ 121 Lateral_Acceleration: 2 XXX
+ SG_ LateralAcceleration : 5|13@0+ (1,0) [0|8191] "" XXX
+ SG_ LateralAcceleration_Qf : 6|2@1+ (1,0) [0|3] "" XXX
 
 BO_ 130 STEER: 8 XXX
  SG_ STEER_ANGLE : 23|16@0+ (0.05,-1600) [500|-500] "deg" XXX
@@ -72,6 +62,7 @@ BO_ 154 BLINK_INFO: 8 XXX
  SG_ WIPER_HI : 34|1@0+ (1,0) [0|1] "" XXX
  SG_ LBEAM2 : 50|1@0+ (1,0) [0|1] "" XXX
  SG_ LBEAM3 : 60|1@0+ (1,0) [0|1] "" XXX
+ SG_ ESS_Active : 61|2@1+ (1,0) [0|3] "" XXX
 
 BO_ 155 MSG_14: 8 XXX
 
@@ -565,12 +556,23 @@ BO_ 1267 MSG_10: 8 XXX
 
 BO_ 1272 MSG_17: 8 XXX
 
-BO_ 1274 NEW_MSG_12: 8 XXX
- SG_ NEW_SIGNAL_1 : 24|4@1+ (1,0) [0|15] "" XXX
- SG_ NEW_SIGNAL_3 : 32|3@1+ (1,0) [0|3] "" XXX
- SG_ NEW_SIGNAL_2 : 35|1@0+ (1,0) [0|255] "" XXX
- SG_ NEW_SIGNAL_4 : 48|4@1+ (1,0) [0|7] "" XXX
- SG_ CTR : 55|4@0+ (1,0) [0|63] "" XXX
+BO_ 1274 EATC_INFO: 8 XXX
+ SG_ SdsActvStat_D_Rq_2 : 2|3@1+ (1,0) [0|7] "" XXX
+ SG_ SdsSmothStat_D_Rq_2 : 5|3@1+ (1,0) [0|7] "" XXX
+ SG_ Sds_TotSD_Point_D_Actl_2 : 8|8@1+ (1,0) [0|255] "" XXX
+ SG_ Engine_Load : 20|7@0+ (1,0) [0|127] "" XXX
+ SG_ Sds_TotNG_Par_D_Rq_2 : 21|3@1+ (1,0) [0|7] "" XXX
+ SG_ DR_Slope : 24|6@1+ (1,0) [0|63] "" XXX
+ SG_ DR_IntakeAirTemp : 32|8@1+ (1,0) [0|255] "" XXX
+ SG_ Unknown_40 : 40|1@1+ (1,0) [0|1] "" XXX
+ SG_ OIL_DETERIORATE_LEVEL : 41|4@1+ (1,0) [0|15] "" XXX
+ SG_ Clutch_SW : 45|1@1+ (1,0) [0|1] "" XXX
+ SG_ Neutral_SW : 46|1@1+ (1,0) [0|1] "" XXX
+ SG_ Fault_Status : 47|1@1+ (1,0) [0|1] "" XXX
+ SG_ IDM_SD_CalcInfo_Value : 52|7@0+ (1,0) [0|127] "" XXX
+ SG_ IDM_SD_CalcInfo_Category : 53|3@1+ (1,0) [0|7] "" XXX
+ SG_ OilLevelSensWarn_B_Rq : 57|1@1+ (1,0) [0|1] "" XXX
+ SG_ OilLevelStatusMonitor : 58|4@1+ (1,0) [0|15] "" XXX
 
 BO_ 1275 2017_5: 8 XXX
  SG_ counter : 4|5@0+ (1,0) [0|255] "" XXX
@@ -590,8 +592,8 @@ CM_ SG_ 120 VEHICLE_ACC_X "Vehicle acceleration of X-axis wrt. NED frame.";
 CM_ SG_ 120 VEHICLE_ACC_Y "Vehicle acceleration of Y-axis wrt. NED frame.";
 CM_ SG_ 157 CAN_OFF "Disengage Cruise if enabled, if already disabled  TURN it OFF";
 CM_ SG_ 357 GEAR "13P, 26R, 13N, 24D";
-CM_ SG_ 540 LANE_LINE_VISIBLE "Inverse value of CAM_LKAS signal "Line Not Visible.";
-CM_ SG_ 540 LANE_LINE_TYPE "Matches CRZ_CTRL signal "Lane Lines"";
+CM_ SG_ 540 LANE_LINE_VISIBLE "Inverse value of CAM_LKAS signal Line Not Visible.";
+CM_ SG_ 540 LANE_LINE_TYPE "Matches CRZ_CTRL signal Lane Lines";
 CM_ SG_ 540 WARN_POPUP_DISPLAY_REQUEST "This signal seems to be triggered before non-critical alerts are displayed, but not for all alerts. For example, brake warning does not seem to need this.";
 CM_ SG_ 552 GEAR "0 Shifting, 1 P, 2 R, 3 N, 4 D";
 CM_ SG_ 552 GEAR_BOX "0 P, 14 R, 1 though 6 D for speeds, 15 Shift";
