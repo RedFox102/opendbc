@@ -35,6 +35,7 @@ unsigned int xor_checksum(uint32_t address, const Signal &sig, const std::vector
 unsigned int hkg_can_fd_checksum(uint32_t address, const Signal &sig, const std::vector<uint8_t> &d);
 unsigned int pedal_checksum(uint32_t address, const Signal &sig, const std::vector<uint8_t> &d);
 unsigned int mazda_checksum(uint32_t address, const Signal &sig, const std::vector<uint8_t> &d);
+unsigned int mazda_checksum_old(uint32_t address, const Signal &sig, const std::vector<uint8_t> &d);
 
 class MessageState {
 public:
